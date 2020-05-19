@@ -1,0 +1,40 @@
+body {
+  overflow: hidden;
+}
+
+.root {
+  display: flex;
+  height: 100vh;
+}
+
+.tile-container {
+  margin: auto;
+  max-width: 900px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 130px;
+  margin: 10px;
+  text-align: center;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.tile:hover {
+  transform: scale(1.1);
+}
+
+.image {
+  height: 130px;
+}
+
+.title {
+  font-size: 1.2em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 10px;
+}

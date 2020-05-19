@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>My Applications</title>
+    <meta name="description" content="My Applications" />
+    <meta name="author" content="nginx-splash" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="root">
+      <div class="tile-container">
+        {{ range $host, $containers := groupBy $ "Env.VIRTUAL_HOST" }}
+            {{ $icon := index ((index $containers 0).Env) "SPLASH_ICON" }}
+            {{ $title := index ((index $containers 0).Env) "SPLASH_NAME" }}
+            {{ if and (ne $icon "") (ne $title "") }}
+            <a href="//{{ $host }}">
+              <div class="tile">
+                <img
+                  class="image"
+                  src="icons/svg/{{ $icon }}"
+                />
+                <span class="title">{{ $title }}</span>
+              </div>
+            </a>
+            {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </body>
+</html>
