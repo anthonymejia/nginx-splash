@@ -1,2 +1,3 @@
-lighttpd: /usr/sbin/lighttpd -D -f /etc/lighttpd/lighttpd.conf
-dockergen: docker-gen -watch /app/index.tmpl  /var/www/localhost/htdocs/index.html
+dockergen-ninx: docker-gen -watch -notify "nginx -s reload" /app/nginx.tmpl /etc/nginx/conf.d/default.conf
+nginx: nginx
+dockergen-splash: docker-gen -watch  /app/public/index.tmpl /app/public/index.html

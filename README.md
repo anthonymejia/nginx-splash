@@ -11,20 +11,13 @@ The following docker compose illustrates how to use the container. Two environme
 version: '2'
 
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
+  nginx-splash:
+    image: anthonymejia/nginx-splash
     ports:
       - "80:80"
     environment:
-      DEFAULT_HOST: 'home.test.lan'
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  nginx-splash:
-    image: anthonymejia/nginx-splash
-    environment:
-      VIRTUAL_HOST: 'home.test.lan'
-      VIRTUAL_PORT: 80
+      VIRTUAL_HOST: 'home'
+      DEFAULT_HOST: 'home'
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
